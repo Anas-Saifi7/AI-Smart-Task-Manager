@@ -5,6 +5,7 @@ import axios from "axios";
 import socket from "../socket"; // ✅ correct place
 
 const TeamChat = () => {
+  const API = import.meta.env.VITE_API_URL;
   const location = useLocation();
 
   const teamId = localStorage.getItem("teamId");
@@ -23,7 +24,7 @@ const TeamChat = () => {
       if (!teamId) return;
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/team/team/${teamId}`
+          `${API}/api/team/team/${teamId}`
         );
         const data = Array.isArray(res.data) ? res.data : [];
         setMembers(data);

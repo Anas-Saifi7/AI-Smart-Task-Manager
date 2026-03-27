@@ -20,6 +20,7 @@ import {
 } from "recharts";
 
 const Dashboard = () => {
+  const API = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   const [tasks, setTasks] = useState([]);
@@ -44,7 +45,7 @@ const Dashboard = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/tasks/user/${userId}`
+       axios.get(`${API}/api/tasks/user/${userId}`)
       );
 
       setTasks(res.data);
@@ -62,7 +63,7 @@ const Dashboard = () => {
         task.status === "Completed" ? "Pending" : "Completed";
 
       const res = await axios.put(
-        `http://localhost:5000/api/tasks/${task._id}`,
+       `${API}/api/tasks/${task._id}` ,
         { status: newStatus }
       );
 
@@ -114,7 +115,7 @@ const Dashboard = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/ai/insights",
+        `${API}/api/ai/insights`,
         {
           message,
           tasks,

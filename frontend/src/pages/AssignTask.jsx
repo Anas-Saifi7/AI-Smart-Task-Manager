@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import socket from "../socket";
 
 const AssignTask = () => {
+   const API = import.meta.env.VITE_API_URL;
+
   const location = useLocation();
   const member = location.state?.member;
 
@@ -34,12 +36,12 @@ const AssignTask = () => {
 
 
     try {
-      const res = await axios.post("http://localhost:5000/api/tasks", {
+      const res = await axios.post(`${API}/api/tasks`, {
         ...task,
-        assignedTo: member.user._id, // 🔥 auto assign
+        assignedTo: member.user._id, 
       });
 
-      // 🔥 Real-time update for the assignee's dashboard
+      //  Real-time update for the assignee's dashboard
       socket.emit("newTask", res.data);
 
       alert("Task Assigned Successfully ✅");

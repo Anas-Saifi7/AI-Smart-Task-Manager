@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const API = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API}/api/auth/login`,
         formData
       );
 
@@ -52,7 +53,7 @@ const Login = () => {
   const handleReset = async () => {
     if (!resetEmail) return;
 
-   await axios.post("http://localhost:5000/api/auth/forgot-password", {
+   await axios.post(`${API}/api/auth/forgot-password`, {
   email: resetEmail,
 });
 

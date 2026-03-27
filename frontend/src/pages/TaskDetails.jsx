@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 
 const TaskDetails = () => {
+  const API = import.meta.env.VITE_API_URL;
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ const TaskDetails = () => {
   // 🔥 FETCH TASK
   const fetchTask = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/tasks/${id}`);
+      const res = await axios.get(`${API}/api/tasks/${id}`)
       setTask(res.data);
       setStatus(res.data.status);
     } catch (err) {
@@ -40,7 +41,7 @@ const TaskDetails = () => {
 
   // 🔥 STATUS UPDATE
   const updateStatus = async () => {
-    await axios.put(`http://localhost:5000/api/tasks/${id}`, {
+    await axios.put(`${API}/api/tasks/${id}`, {
       status,
     });
     fetchTask();
@@ -48,14 +49,14 @@ const TaskDetails = () => {
 
   // 🔥 EDIT SAVE
   const saveEdit = async () => {
-    await axios.put(`http://localhost:5000/api/tasks/${id}`, task);
+    await axios.put(`${API}/api/tasks/${id}`, task);
     setEditMode(false);
     fetchTask();
   };
 
   // 🔥 DELETE
   const deleteTask = async () => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    await axios.delete(`${API}/api/tasks/${id}`);
     navigate("/");
   };
 

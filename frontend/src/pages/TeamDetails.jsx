@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 const TeamDetails = () => {
+  const API = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const location = useLocation();
 

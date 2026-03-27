@@ -4,6 +4,7 @@ import axios from "axios";
 import socket from "../socket";
 
 const CreateTask = () => {
+  const API = import.meta.env.VITE_API_URL;
   const [task, setTask] = useState({
     title: "",
     description: "",
@@ -26,14 +27,14 @@ const handleSubmit = async (e) => {
     const userId = localStorage.getItem("userId");
 
     const res = await axios.post(
-      "http://localhost:5000/api/tasks",
+      `${API}/api/tasks`,
       {
         ...task,
-        assignedTo: userId, // 🔥 IMPORTANT
+        assignedTo: userId, 
       }
     );
 
-    socket.emit("newTask", res.data); // 🔥 FIXED
+    socket.emit("newTask", res.data);
 
     alert("Task Created ✅");
 
