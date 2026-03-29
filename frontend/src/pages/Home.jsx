@@ -104,17 +104,12 @@ const Home = () => {
         </p>
 
         <Link to="/register">
-          <button className="mt-8 bg-gradient-to-r from-green-500 to-blue-500 px-8 py-3 rounded-lg hover:scale-105 transition">
+          <button className="mt-5 bg-gradient-to-r from-green-500 to-blue-500 px-8 py-3 rounded-lg hover:scale-105 transition">
             Create Free Account
           </button>
         </Link>
 
       </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-white/10 py-6 text-center text-gray-500 text-sm">
-        © 2026 TaskCollab | Built by Anas 🚀
-      </footer>
 
     </div>
   );

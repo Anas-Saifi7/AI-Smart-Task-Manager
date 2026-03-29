@@ -45,7 +45,7 @@ const Dashboard = () => {
 
     try {
       const res = await axios.get(
-       axios.get(`${API}/api/tasks/user/${userId}`)
+       `${API}/api/tasks/user/${userId}`
       );
 
       setTasks(res.data);
@@ -150,7 +150,7 @@ const Dashboard = () => {
   const pendingTasks = tasks.filter((t) => t.status !== "Completed");
 
   const stats = [
-    { title: "Projects", value: 3, icon: <FaProjectDiagram />, type: "All" },
+    // { title: "Projects", value: 3, icon: <FaProjectDiagram />, type: "All" },
     { title: "Tasks", value: tasks.length, icon: <FaTasks />, type: "All" },
     {
       title: "Completed",

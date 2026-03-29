@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ProtectedRoute from "./components/ProtectedRoute";
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -13,7 +14,8 @@ import HelpCenter from "./pages/HelpCenter";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import AssignTask from "./pages/AssignTask";
-// import Footer from './components/Footer'
+import Footer from './components/Footer'
+
 
 
 const App = () => {
@@ -32,7 +34,7 @@ const App = () => {
         <Route path = '/' element = {<Home/>}/>
         <Route path = '/login' element = {<Login/>}/>
         <Route path = '/register' element = {<Register/>}/>
-        <Route path = '/dashboard' element = {<Dashboard/>}/>
+        <Route path = '/dashboard' element = {<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
         <Route path="/task/:id" element={<TaskDetails />} />
         <Route path="/team" element={<Team />} />
         <Route path="/team/:id" element={<TeamDetails />} />
@@ -43,7 +45,7 @@ const App = () => {
         <Route path="/terms" element={<Terms />} />
         <Route path = '/assign-task' element = {<AssignTask/>}/>
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
   )
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Footer = () => {
+    const userId = localStorage.getItem("userId");
     return (
         <footer className="bg-gray-900 text-gray-300 py-10 mt-10">
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
@@ -28,7 +29,7 @@ const Footer = () => {
                         </li>
 
                         <li>
-                            <Link to="/dashboard" className="hover:text-white">
+                            <Link to={userId ? "/dashboard" : "/login"}>
                                 Dashboard
                             </Link>
                         </li>

@@ -74,8 +74,8 @@ useEffect(() => {
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
         {/* LOGO */}
-        <h2 className="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-          TaskCollab
+        <h2 className="text-xl font-bold bg-linear-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          TaskManager
         </h2>
 
         {/* DESKTOP */}
@@ -84,7 +84,7 @@ useEffect(() => {
           {/* NEW TASK */}
           <Link to="/create-task">
             <button className="flex items-center gap-2 px-4 py-2 rounded-full 
-            bg-gradient-to-r from-green-500 to-blue-500 text-sm">
+            bg-linear-to-r from-green-500 to-blue-500 text-sm">
               <FaPlus /> New Task
             </button>
           </Link>
@@ -92,7 +92,7 @@ useEffect(() => {
           {/* THEME */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-white/10"
+            className="p-2  rounded-full bg-white/10"
           >
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
@@ -146,7 +146,7 @@ useEffect(() => {
               onClick={() => setOpenProfile(!openProfile)}
               className="flex items-center gap-2 cursor-pointer"
             >
-              <div className="w-9 h-9 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-linear-to-r from-green-400 to-blue-500 flex items-center justify-center">
                 A
               </div>
               <FaChevronDown className="text-xs text-gray-400" />
@@ -208,30 +208,25 @@ useEffect(() => {
           <Link to="/dashboard" className={linkStyle("/dashboard")}>
             Dashboard
           </Link>
-
-          <Link to="/team" className={linkStyle("/team")}>
+    <button
+            onClick={() => navigate("/team")}
+            className="w-full px-4 py-3 rounded-xl text-left hover:bg-white/10"
+          >
             Team
-          </Link>
+          </button>
 
           <Link to="/create-task">
             <button className="w-full flex items-center justify-center gap-2 
-            bg-gradient-to-r from-green-500 to-blue-500 py-3 rounded-xl">
+            bg-linear-to-r from-green-500 to-blue-500 py-3 rounded-xl">
               + New Task
             </button>
           </Link>
 
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="w-full px-4 py-3 rounded-xl bg-white/10 text-left"
+            className="w-full px-4 py-3 mt-4 rounded-xl bg-white/10 text-left"
           >
             {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-          </button>
-
-          <button
-            onClick={() => navigate("/team")}
-            className="w-full px-4 py-3 rounded-xl text-left hover:bg-white/10"
-          >
-            Team
           </button>
 
           <button
